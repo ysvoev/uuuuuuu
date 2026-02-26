@@ -1,0 +1,8 @@
+body {
+  background-color: var(--color-white) !important;
+}
+
+::selection {
+  background: var(--color-green) !important;
+  color: var(--color-yellow) !important;
+}

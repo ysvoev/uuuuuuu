@@ -1,0 +1,547 @@
+/* переменные */
+
+@font-face {
+  font-family: 'ZenAntique';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/ZenAntique-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBMPlexMono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/IBMPlexMono-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'MPLUSRounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/MPLUSRounded1c-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'WDXLLubri';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/WDXLLubrifontSC-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/Cormorant-Regular.ttf') format('truetype');
+}
+
+:root {
+  --color-white: #e7e5e0;
+  --color-black: #030303;
+  --color-blackgrey: #0d0d0d;
+  --color-deepgrey: #1E1E1E;
+  --color-mediumgrey: #2C2C2C;
+  --color-regulargrey: #606060;
+  --color-lightgrey: #A9A9A9;
+  --color-green: #2d773d;
+  --color-yellow: #cea717;
+  --color-blue: #194a92;
+  --color-violet: #5a1f60;
+  --color-pink: #47152f;
+  --color-red: #6b1919;
+  --color-orange: #934011;
+  --gradient-01: linear-gradient(180deg, var(--color-blue) 8%, var(--color-yellow) 26%, var(--color-orange) 40%, var(--color-blue) 42%, var(--color-black) 92%);
+  --gradient-02: linear-gradient(180deg, var(--color-yellow) 4%, var(--color-white) 60%);
+  --gradient-03: linear-gradient(180deg, var(--color-white) -200%, var(--color-blue) 80%, var(--color-black) 200%);
+  --gradient-04: linear-gradient(270deg, var(--color-deepgrey) 0%, var(--color-green) 40%, var(--color-mediumgrey) 60%, var(--color-black) 80%);
+  --gradient-05: radial-gradient(circle, var(--color-white) 0%, var(--color-blue) 200%);
+  --font-size-h: 12px;
+  --m-font-size-h: calc(var(--font-size-h) * 3.2);
+  --line-height-h: 16px;
+  --m-line-height-h: calc(var(--line-height-h) * 3.2);
+  --font-size-p: 20px;
+  --m-font-size-p: calc(var(--font-size-p) * 2.4);
+  --line-height-p: 24px;
+  --m-line-height-p: calc(var(--line-height-p) * 2.4);
+  --text-transform: lowercase;
+  --gap: 8px;
+  --padding: 8px;
+  --radius: 8px;
+  --opacity: 0.2;
+  --portfolio-width: 80px;
+  --animation-duration: 400ms;
+  --animation-cubic: cubic-bezier(0.8, 0, 0.2, 1);
+  
+  /* Переменные для курсоров - изолируем от JS */
+  --cursor-default: crosshair;
+  --cursor-clickable: pointer;
+}
+
+/* основные стили */
+
+/* Радикально простой подход - только базовые элементы */
+html, body {
+  cursor: crosshair !important;
+}
+
+body {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-optical-sizing: auto;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.bg-black {
+  background-color: var(--color-black) !important;
+}
+
+.bg-blue {
+  background-color: var(--color-blue) !important;
+}
+
+.bg-yellow {
+  background-color: var(--color-yellow) !important;
+}
+
+.bg-white {
+  background-color: var(--color-white) !important;
+}
+
+.bg-green {
+  background-color: var(--color-green) !important;
+}
+
+.bg-orange {
+  background-color: var(--color-orange) !important;
+}
+
+.bg-regulargrey {
+  background-color: var(--color-regulargrey) !important;
+}
+
+.bg-deepgrey {
+  background-color: var(--color-deepgrey) !important;
+}
+
+.bg-gradient-01 {
+  background: var(--gradient-01) !important;
+}
+
+.bg-gradient-02 {
+  background: var(--gradient-02) !important;
+}
+
+.bg-gradient-03 {
+  background: var(--gradient-03) !important;
+}
+
+.bg-gradient-04 {
+  background: var(--gradient-04) !important;
+}
+
+.bg-gradient-05 {
+  background: var(--gradient-05) !important;
+}
+
+/* Все элементы наследуют crosshair, кроме ссылок */
+* {
+  cursor: inherit !important;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.poem::-webkit-scrollbar {
+  display: none;
+}
+
+
+body * {
+  pointer-events: auto;
+}
+
+*:focus {
+  outline: none;
+}
+
+::selection {
+  background: var(--color-white);
+  color: var(--color-blue);
+}
+
+
+p, a, h1, h2, h3, h4, h5, h6  {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: var(--text-transform);
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.t-blue p,
+.t-blue a,
+.t-blue h1,
+.t-blue h2,
+.t-blue h3,
+.t-blue h4,
+.t-blue h5,
+.t-blue h6 {
+  color: var(--color-blue) !important;
+}
+
+.t-blue a {
+  border-bottom: 1px solid var(--color-blue);
+}
+
+.t-white p,
+.t-white a,
+.t-white h1,
+.t-white h2,
+.t-white h3,
+.t-white h4,
+.t-white h5,
+.t-white h6 {
+  color: var(--color-white) !important;
+}
+
+.t-white a {
+  border-bottom: 1px solid var(--color-white);
+}
+
+.t-green p,
+.t-green a,
+.t-green h1,
+.t-green h2,
+.t-green h3,
+.t-green h4,
+.t-green h5,
+.t-green h6 {
+  color: var(--color-green) !important;
+}
+
+.t-green a {
+  border-bottom: 1px solid var(--color-green);
+}
+
+.t-red p,
+.t-red a,
+.t-red h1,
+.t-red h2,
+.t-red h3,
+.t-red h4,
+.t-red h5,
+.t-red h6 {
+  color: var(--color-red) !important;
+}
+
+.t-red a {
+  border-bottom: 1px solid var(--color-red);
+}
+
+.t-black p,
+.t-black a,
+.t-black h1,
+.t-black h2,
+.t-black h3,
+.t-black h4,
+.t-black h5,
+.t-black h6 {
+  color: var(--color-black) !important;
+}
+
+.t-black a {
+  border-bottom: 1px solid var(--color-black);
+}
+
+.t-yellow p,
+.t-yellow a,
+.t-yellow h1,
+.t-yellow h2,
+.t-yellow h3,
+.t-yellow h4,
+.t-yellow h5,
+.t-yellow h6 {
+  color: var(--color-yellow) !important;
+}
+
+.t-yellow a {
+  border-bottom: 1px solid var(--color-yellow);
+}
+
+.t-orange p,
+.t-orange a,
+.t-orange h1,
+.t-orange h2,
+.t-orange h3,
+.t-orange h4,
+.t-orange h5,
+.t-orange h6 {
+  color: var(--color-orange) !important;
+}
+
+.t-orange a {
+  border-bottom: 1px solid var(--color-orange);
+}
+
+.t-gradient-05 p,
+.t-gradient-05 a,
+.t-gradient-05 h1,
+.t-gradient-05 h2,
+.t-gradient-05 h3,
+.t-gradient-05 h4,
+.t-gradient-05 h5,
+.t-gradient-05 h6 {
+  color: var(--gradient-05) !important;
+}
+
+.t-gradient-05 a {
+  border-bottom: 1px solid var(--gradient-05);
+}
+
+
+.header {
+  font-family: "IBMPlexMono", sans-serif;
+  font-size: var(--font-size-h);
+  line-height: var(--line-height-h);
+  opacity: calc(var(--opacity) * 3);
+}
+
+.footer {
+  font-family: "IBMPlexMono", sans-serif;
+  font-size: var(--font-size-h);
+  line-height: var(--line-height-h);
+  opacity: calc(var(--opacity) * 3);
+}
+
+.description {
+  font-family: "IBMPlexMono", sans-serif;
+  font-size: var(--font-size-h);
+  line-height: var(--line-height-h);
+  opacity: calc(var(--opacity) * 3);
+}
+
+.navigation {
+  font-family: "IBMPlexMono", sans-serif;
+  font-size: var(--font-size-h);
+  line-height: var(--line-height-h);
+  opacity: calc(var(--opacity) * 3);
+}
+
+.content, .about, .sound {
+  font-family: "ZenAntique", serif;
+  font-size: var(--font-size-p);
+  line-height: var(--line-height-p);
+}
+
+/* Ссылки всегда pointer - максимальная специфичность */
+a {
+  cursor: pointer !important;
+  border-bottom: 1px solid var(--color-blue);
+}
+
+button, input[type="submit"], input[type="button"], .clickable {
+  cursor: pointer !important;
+}
+
+/* Дополнительная защита для всех состояний ссылок */
+a:link, a:visited, a:hover, a:active, a:focus, a:any-link {
+  cursor: pointer !important;
+}
+
+
+/* Сохраняем цветовые эффекты ссылок при наведении */
+a.blend-invert:hover::after {
+  opacity: 0;
+}
+
+a:hover {
+  border-bottom: none;
+}
+
+.block {  
+  width: calc(100% - (var(--padding) * 4));
+  height: 100%;
+  margin: calc(var(--padding) * 2);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  gap: var(--gap);
+  position: fixed;
+  top: var(--padding);
+  width: calc(100vw - (var(--padding) * 4));
+  justify-content: space-between;
+  z-index: 101;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.footer {
+  display: flex;
+  gap: var(--gap);
+  position: fixed;
+  bottom: var(--padding);
+  width: calc(100vw - (var(--padding) * 4));
+  justify-content: space-between;
+  z-index: 101;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  align-items: flex-end;
+}
+
+.navigation {
+  display: flex;
+  gap: var(--gap);
+  position: fixed;
+  top: 50vh;
+  width: calc(100vw - (var(--padding) * 4));
+  justify-content: space-between;
+  z-index: 101;
+}
+
+.content p {
+  text-align: left;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: calc(var(--gap)*20);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.poem {
+  min-height: 100vh;
+  width: 100vw;
+  align-content: center;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.poem p {
+  padding-top: calc(var(--padding) * 20);
+  padding-bottom: calc(var(--padding) * 20);
+  padding-left: 26vw;
+  padding-right: 26vw;
+}
+
+.about {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  padding-bottom: calc(var(--padding) * 4);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  position: absolute;
+}
+
+.sound {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  padding-bottom: calc(var(--padding) * 4);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  position: absolute;
+}
+
+
+.list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--gap)/4);
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  gap: calc(var(--gap) / 4);
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.none {
+  display: none;
+}
+
+.tip {
+  display: none;
+}
+
+
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 1000px) {
+
+  .content, .sound {
+    font-size : var(--m-font-size-p); 
+    line-height : var(--m-line-height-p);     
+  }
+
+  .header, .footer, .description, .navigation  {
+    font-size : var(--m-font-size-h); 
+    line-height : var(--m-line-height-h);     
+  }
+
+  .header p {
+    max-width: 60vw;
+  }
+
+  .none {
+    display: none;
+  }
+
+  .poem {
+    width: auto;
+    margin-left: var(--gap);
+  }
+
+  .poem p {
+    width: auto;
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+
+}
+

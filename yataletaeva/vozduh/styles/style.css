@@ -1,0 +1,24 @@
+::selection {
+  background: var(--color-green) !important;
+  color: var(--color-white) !important;
+}
+
+.content {
+  font-family: Cormorant, serif;
+  font-size: calc(var(--font-size-p) * 1.4);
+  line-height: calc(var(--line-height-p) * 1.4);
+}
+
+@media (max-width: 1000px) {
+
+  .content {
+    font-size : calc(var(--m-font-size-p) * 1.2); 
+    line-height : calc(var(--m-line-height-p) * 1.2);     
+  }
+
+  .poem p {
+    padding-top: calc(var(--padding) * 40);
+    padding-bottom: calc(var(--padding) * 40);
+  }
+
+}

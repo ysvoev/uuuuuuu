@@ -1,0 +1,25 @@
+body {
+    background-color: var(--color-blue) !important;
+}
+
+::selection {
+    background: var(--color-white) !important;
+    color: var(--color-blue) !important;
+}
+
+p, a {
+    color: var(--color-white) !important;
+}
+
+.poem p {
+    color: var(--color-blue) !important;
+}
+
+a {
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--color-white) !important;
+  }
+
+a:hover {
+    border-bottom: none;
+  }
